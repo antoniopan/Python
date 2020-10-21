@@ -22,7 +22,7 @@ def train():
     ffnn = Sequential()
     ffnn.add(Dense(HIDDEN_LAYER_SIZE, input_shape=(3, ), activation="sigmoid"))
     ffnn.add(Dense(1, activation="sigmoid"))
-    ffnn.compile(loss="mean_square_error", optimizer="sgd", metrics=['accuracy'])
+    ffnn.compile(loss="mean_squared_error", optimizer="sgd", metrics=['accuracy'])
     ffnn.fit(tr_data, tr_labels, epochs=150, batch_size=2, verbose=1)
 
     metrics = ffnn.evaluate(te_data, te_labels, verbose=1)
